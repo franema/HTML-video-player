@@ -34,17 +34,17 @@ function handlePlaybackUpdate() {
     $video.playbackRate = this.value
 }
 
-function handleProgress () {
+function handleProgress() {
     const percent = ($video.currentTime / $video.duration) * 100
     $progressBar.style.flexBasis = `${percent}%`
 }
 
-function scrub (e) {
+function scrub(e) {
     const scrubTime = (e.offsetX / $progress.offsetWidth) * $video.duration
     $video.currentTime = scrubTime
 }
 
-function getFullscreen () {
+function getFullscreen() {
     $video.requestFullscreen()
 }
 
@@ -65,8 +65,8 @@ let mouseDown = false
 $progress.addEventListener("mousedown", () => mouseDown = true)
 $progress.addEventListener("mouseup", () => mouseDown = false)
 $progress.addEventListener("click", scrub)
-$progress.addEventListener("mousemove", function(e) {
-    if(mouseDown) {
+$progress.addEventListener("mousemove", function (e) {
+    if (mouseDown) {
         scrub(e)
     }
 })
